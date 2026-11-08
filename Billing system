@@ -1,0 +1,49 @@
+import java.util.*;
+
+class Shop {
+    private String name;
+    private int price;
+
+    Shop(String n, int p) {
+        name = n;
+        price = p;
+    }
+
+    String getName() {
+        return name;
+    }
+
+    int getPrice() {
+        return price;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<Shop> list = new ArrayList<>();
+
+        for (int i = 0; i < 2; i++) {
+            System.out.print("Enter product name: ");
+            String n = sc.next();
+
+            System.out.print("Enter price: ");
+            int p = sc.nextInt();
+
+            list.add(new Shop(n, p));
+        }
+
+        int total = 0;
+
+        for (Shop s : list) {
+            System.out.println(s.getName() + " = " + s.getPrice());
+            total += s.getPrice();
+        }
+
+        System.out.println("Total Bill = " + total);
+
+        sc.close();
+    }
+}
